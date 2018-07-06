@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "run-s start:server start:ng",
+    "start": "run-p start:server start:ng",
     "start:ng": "ng serve --proxy-config proxy.conf.json",
     "start:server": "cd server && npm start",
     "postinstall": "cd server && npm install && npm run link",
