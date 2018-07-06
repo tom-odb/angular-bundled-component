@@ -8,4 +8,5 @@ import { FormControl } from '@angular/forms';
 })
 export class AppComponent {
   public username = new FormControl();
+  public fullName = new FormControl();
 }

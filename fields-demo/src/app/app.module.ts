@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { SlugFieldModule } from '@fields/slug';
+import { CapitalizeFieldModule } from '@fields/capitalize';
 
 import { AppComponent } from './app.component';
 
@@ -13,6 +14,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     SlugFieldModule,
+    CapitalizeFieldModule,
     ReactiveFormsModule
   ],
   providers: [],
