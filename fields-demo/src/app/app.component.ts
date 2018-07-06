@@ -7,6 +7,10 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public username = new FormControl();
-  public fullName = new FormControl();
+  public fieldControl = new FormControl();
+  public fieldType = 'slug';
+
+  public handleChange(value: any) {
+    console.log(value);
+  }
 }

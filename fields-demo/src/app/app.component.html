@@ -1,2 +1,11 @@
-<slug-field id="username" name="username" label="Username" placeholder="choose a username" [formControl]="username"></slug-field>
-<capitalize-field id="fullName" name="fullName" label="Full Name" placeholder="full name" [formControl]="fullName"></capitalize-field>
+<select [(ngModel)]="fieldType">
+  <option value="slug">Slugify</option>
+  <option value="capitalize">Capitalize</option>
+</select>
+
+<p>
+  Type: {{fieldType}}
+  <br>
+  Value: {{fieldControl.value}}
+</p>
+<field [type]="fieldType" [control]="fieldControl" (modelChange)="handleChange($event)"></field>

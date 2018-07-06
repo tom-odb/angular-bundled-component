@@ -1,23 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-
-import { SlugFieldModule } from '@fields/slug';
-import { CapitalizeFieldModule } from '@fields/capitalize';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
+import { FieldLoaderService } from './loader';
+import { FieldComponent } from './field.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FieldComponent,
   ],
   imports: [
     BrowserModule,
-    SlugFieldModule,
-    CapitalizeFieldModule,
+    FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    FieldLoaderService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
