@@ -1,5 +1,5 @@
-import { Component, forwardRef, Input } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 import { UcWordsPipe } from 'ngx-pipes';
 
@@ -8,14 +8,10 @@ import { UcWordsPipe } from 'ngx-pipes';
   templateUrl: './capitalize.component.html',
   providers: [
     UcWordsPipe,
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CapitalizeFieldComponent),
-      multi: true,
-    },
   ],
 })
-export class CapitalizeFieldComponent implements ControlValueAccessor {
+export class CapitalizeFieldComponent implements OnInit {
+  @Input() public control: FormControl;
   @Input() public id = 'capitalized';
   @Input() public name = 'capitalized';
   @Input() public label;
@@ -23,25 +19,22 @@ export class CapitalizeFieldComponent implements ControlValueAccessor {
 
   public input = '';
   public capitalized = '';
-  public onChange: (..._) => any = () => {};
 
   constructor(
     private capitalize: UcWordsPipe,
   ) {}
 
-  public registerOnChange(onChange: (..._) => any): void {
-    this.onChange = onChange;
+  public ngOnInit(): void {
+    this.input = this.control.value;
+
+    this.handleInputChange(false);
   }
 
-  public registerOnTouched(): void {}
-
-  public writeValue(value: any): void {
-    this.capitalized = this.input = this.capitalize.transform(value);
-  }
-
-  public handleInputChange(): void {
+  public handleInputChange(shouldUpdate: boolean = true): void {
     this.capitalized = this.capitalize.transform(this.input);
 
-    this.onChange(this.capitalized);
+    if (shouldUpdate) {
+      this.control.setValue(this.capitalized);
+    }
   }
 }
