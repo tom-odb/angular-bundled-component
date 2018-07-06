@@ -5,11 +5,6 @@
   "browser": "fields-capitalize.cjs.js",
   "module": "fields-capitalize.es.js",
   "es2015": "fields-capitalize.es.js",
-  "$package": {
-    "dependencies": [
-      "ngx-pipes"
-    ]
-  },
   "scripts": {
     "clean:dist": "rimraf dist",
     "clean:ts": "rimraf ts-out",

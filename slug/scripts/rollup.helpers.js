@@ -6,7 +6,7 @@ const minify = require('uglify-es').minify;
 const camelcase = require('lodash.camelcase');
 const capitalize = require('lodash.capitalize');
 
-const conf = require('../package.json').$package;
+const conf = require('../package.json');
 const systemDependencies = require('./system');
 
 const getSingleOuput = (name, fileName, format) => {
@@ -47,9 +47,9 @@ const getPlugins = () => {
                 'external-helpers',
             ],
         }),
-        // uglify({
-        //     mangle: false
-        // }, minify),
+        uglify({
+            mangle: false
+        }, minify),
     ];
 };
 
