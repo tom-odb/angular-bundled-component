@@ -6,6 +6,7 @@ delete packageJson['private'];
 delete packageJson['devDependencies'];
 delete packageJson['directories'];
 delete packageJson['$rollup'];
+delete packageJson['dependencies'];
 
 fs.writeFileSync(`${process.cwd()}/dist/package.json`, JSON.stringify(packageJson, undefined, 2));
 

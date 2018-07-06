@@ -6,7 +6,7 @@ const minify = require('uglify-es').minify;
 const camelcase = require('lodash.camelcase');
 const capitalize = require('lodash.capitalize');
 
-const dependencies = require('../ng-package.json').whitelistedNonPeerDependencies;
+const conf = require('../package.json').$package;
 const systemDependencies = require('./system');
 
 const getSingleOuput = (name, fileName, format) => {
@@ -33,7 +33,7 @@ const getPlugins = () => {
     return [
         resolve({
             main: true,
-            only: getExternal(dependencies),
+            only: getExternal(conf.dependencies),
             jsnext: true,
         }),
         commonjs({
