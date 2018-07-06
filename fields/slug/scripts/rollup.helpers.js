@@ -54,7 +54,7 @@ const getPlugins = () => {
 };
 
 const getExternal = (deps = []) => {
-	return deps.filter(dep => systemDependencies.indexOf(dep) < 0);
+	return Object.keys(deps).filter(dep => systemDependencies.indexOf(dep) < 0);
 };
 
 const getGlobals = (deps = {}) => {

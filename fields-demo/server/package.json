@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
-    "link": "npm link @fields/slug && npm link @fields/capitalize"
+    "link": "node ./scripts/link.js"
   },
+  "$fields": [
+    "slug",
+    "capitalize"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
